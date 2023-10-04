@@ -6,7 +6,7 @@
 
 <header class="row bg-black" >
     <div class="col-md-4">
-        <img src="{% static 'portfolio/profile.jpeg' %}" alt="">
+        <img src="{% static 'portfolio/profile.jpeg' %}" alt="" class="img-fluid">
     </div>
 
     <div class="col-md-8 my-auto">
@@ -27,16 +27,16 @@
     {% for project in projects %}
 
     <div class="col-md-4 p-4">
-        <div class="card bg-black card-project">
+        <div class="card bg-black card-project text-light">
             <img src="{{project.image.url}}" alt="{{project.title}}" class="card-img-top">
             <div class="card-body">
 
             <h2>{{project.title}}</h2>
-            <p>{{project.description}}</p>
+            <p>{{project.description|safe}}</p>
                 
             
             {% if project.url %}
-                <a href="{{project.url}}" class="btn btn-light rounded-0 btn-sm" target="_blank">{{project.url}}</a>
+                <a href="{{project.url}}" class="btn btn-light rounded-0 btn-sm img-fluid" target="_blank">{{project.url}}</a>
             {% endif %}
             </div>
         </div>
