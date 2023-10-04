@@ -1,0 +1,49 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+{% load static %}
+
+<header class="row bg-black" >
+    <div class="col-md-4">
+        <img src="{% static 'portfolio/profile.jpeg' %}" alt="">
+    </div>
+
+    <div class="col-md-8 my-auto">
+        <h1>I am <strong>Luz Vivanco</strong></h1>
+        <h3>I am Python Backend Developer</h3>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Praesentium ea odit nihil officia alias fugiat distinctio perspiciatis in voluptatibus, enim nulla similique est aut aliquid. Laudantium numquam sunt ratione alias incidunt quibusdam natus, cumque esse accusantium excepturi nemo expedita debitis dignissimos tenetur dolor in necessitatibus molestias fugit officiis harum molestiae? Suscipit, veniam consectetur laboriosam esse veritatis, alias amet, et rem eveniet quos sint aliquam nihil iure. Magnam delectus reprehenderit, minima molestias quod sunt iure officia! A eum quasi ex blanditiis alias accusantium minus adipisci quos beatae ipsam laudantium asperiores et dolores ducimus illum nemo dolore quaerat fuga odit, laboriosam incidunt!</p>
+        <a href="{% static 'portfolio/cv.pdf' %}" class="btn btn-primary btn-lg rounded-0 my-3">Download CV</a>
+    </div>
+</header>
+
+
+
+<div class="row my-4 text-center">
+
+    <h3>My Projects</h3>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, odit.</p>
+
+    {% for project in projects %}
+
+    <div class="col-md-4 p-4">
+        <div class="card bg-black card-project">
+            <img src="{{project.image.url}}" alt="{{project.title}}" class="card-img-top">
+            <div class="card-body">
+
+            <h2>{{project.title}}</h2>
+            <p>{{project.description}}</p>
+                
+            
+            {% if project.url %}
+                <a href="{{project.url}}" class="btn btn-light rounded-0 btn-sm" target="_blank">{{project.url}}</a>
+            {% endif %}
+            </div>
+        </div>
+    </div>
+
+    {% endfor %}
+</div>
+
+{% endblock %}
+
